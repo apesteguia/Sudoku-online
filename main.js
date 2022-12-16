@@ -107,13 +107,15 @@ for (let i = 0; i < NUM; i++) {
   }
 }
 
-const solucion = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const solucion = ["1", "2", "3", "4", "5", "6", "7", "8", "9"];
 
 const check = (array) => {
   if (array.includes(0)) {
     return false;
   }
-  array.reverse();
+  array.sort();
+  console.log(array);
+  console.log(solucion);
   for (let i = 0; i < NUM; i++) {
     if (array[i] !== solucion[i]) {
       return false;
@@ -123,82 +125,118 @@ const check = (array) => {
 };
 
 const row = () => {
-  let x = new Array(NUM);
-  let a;
+  let x = new Array(9);
+  let a = 0;
   let b;
 
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
       b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
-    }
-    for (let j = 3; j < 6; j++) {
-      b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
-    }
-    for (let j = 6; j < 9; j++) {
-      b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
+      x.push(b);
     }
   }
-
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
+  for (let i = 0; i < 3; i++) {
+    for (let j = 3; j < 6; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
+  for (let i = 0; i < 3; i++) {
+    for (let j = 6; j < 9; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
   for (let i = 3; i < 6; i++) {
     for (let j = 0; j < 3; j++) {
       b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
-    }
-    for (let j = 3; j < 6; j++) {
-      b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
-    }
-    for (let j = 6; j < 9; j++) {
-      b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
+      x.push(b);
     }
   }
-
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
+  for (let i = 3; i < 6; i++) {
+    for (let j = 3; j < 6; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
+  for (let i = 3; i < 6; i++) {
+    for (let j = 6; j < 9; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
   for (let i = 6; i < 9; i++) {
     for (let j = 0; j < 3; j++) {
       b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
-    }
-    for (let j = 3; j < 6; j++) {
-      b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
-    }
-    for (let j = 6; j < 9; j++) {
-      b = app.children[i].children[j].innerText;
-      x[i + j] = b;
-      if (check(x) === false) {
-        return false;
-      }
+      x.push(b);
     }
   }
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
+  for (let i = 6; i < 9; i++) {
+    for (let j = 3; j < 6; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
+  x = new Array(NUM);
+  for (let i = 6; i < 9; i++) {
+    for (let j = 6; j < 9; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
+
   alert("hoal");
+};
+
+const rows = () => {
+  let x = new Array(NUM + 1);
+  let a = 0;
+  let b;
+
+  for (let i = 0; i < 3; i++) {
+    for (let j = 0; j < 3; j++) {
+      b = app.children[i].children[j].innerText;
+      x.push(b);
+      console.log(x);
+    }
+  }
+  if (check(x) === false) {
+    return false;
+  }
 };
 
 boton.addEventListener("click", () => {
