@@ -1,0 +1,81 @@
+.app {
+    border: 1px solid black;
+    height: 600px;
+    width: 600px;
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 33.34% 33.34% 33.34%;
+}
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1 {
+    text-align: center;
+}
+.matriz {
+    border: 1px solid black;
+    display: grid;
+    grid-template-columns: 33.33% 33.33% 33.33%;
+    transition: .7s;
+}
+.celda {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+}
+.invisible {
+    visibility: hidden;
+}
+
+.numeros {
+    display: flex;
+    justify-content: center;
+    font-size: 1.1rem;
+    align-items: center;
+    height: 45px;
+    width: 600px;
+    margin-top: 10px;
+    gap: 35px;
+    border: 3px solid black;
+}
+.click {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    font-weight: bold;
+}
+.flecha {
+    margin-bottom: 10px;
+    text-align: center;
+    transform: rotate(-90deg);
+}
+.gris {
+    background-color: lightgray;
+}
+.num {
+    font-size: 1.5rem;
+    gap: 1px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+button {
+    cursor: pointer;
+    margin-top: 20px;
+    height: 30px;
+    width: 100px;
+    background-color: rgb(0, 119, 255);
+    color: white;
+    transition: .2s;
+}
+
+button:hover {
+    transition: .2s;
+    transform: scale(1.1);
+}
