@@ -15,6 +15,7 @@ let num;
 
 let n = new Array(NUM + 2);
 let o = new Array(NUM + 2);
+let t;
 for (let i = 0; i < NUM + 2; i++) {
   n[i] = document.createElement("div");
   o[i] = document.createElement("span");
@@ -48,9 +49,7 @@ for (let i = 0; i < NUM + 2; i++) {
         o[j].style.color = "black";
       }
       o[i].style.color = "red";
-      if ((o[i].style.backgroundColor === "lightgrey") !== true) {
-        num = 0;
-      }
+      num = 0;
     });
   }
   n[i].appendChild(o[i]);
@@ -83,19 +82,27 @@ for (let i = 0; i < NUM; i++) {
     }
     k++;
     x.innerText = sudoku[0][k - 1];
-    //x.innerText = k;
     b[i][j].appendChild(x);
-    b[i][j].addEventListener("click", () => {
-      if (b[i][j].children[0].textContent === 0) {
-        b[i][j].children[0].textContent = num;
-        b[i][j].children[0].classList.remove("invisible");
-      } else if (num === 0) {
-        b[i][j].children[0].textContent = 0;
-        b[i][j].children[0].classList.add("invisible");
-      } else {
-        console.log("asdf");
-      }
-    });
+    if (b[i][j].children[0].textContent == 0) {
+      b[i][j].addEventListener("click", () => {
+        if (b[i][j].children[0].textContent === 0) {
+          if (num != 0 || num !== 0) {
+            b[i][j].children[0].textContent = num;
+            b[i][j].children[0].classList.remove("invisible");
+          }
+        } else if (b[i][j].children[0].textContent == 0) {
+          if (num != 0 || num !== 0) {
+            b[i][j].children[0].textContent = num;
+            b[i][j].children[0].classList.remove("invisible");
+          }
+        } else if (num === 0) {
+          b[i][j].children[0].textContent = "";
+          b[i][j].children[0].classList.add("invisible");
+        } else {
+          console.log("asdf");
+        }
+      });
+    }
     a[i].appendChild(b[i][j]);
   }
 }
@@ -107,8 +114,6 @@ const check = (array) => {
     return false;
   }
   array.reverse();
-  console.log(array);
-  console.log(solucion);
   for (let i = 0; i < NUM; i++) {
     if (array[i] !== solucion[i]) {
       return false;
@@ -121,28 +126,25 @@ const row = () => {
   let x = new Array(NUM);
   let a;
   let b;
-  let k = 0;
+
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
     }
     for (let j = 3; j < 6; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
     }
     for (let j = 6; j < 9; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
@@ -150,26 +152,23 @@ const row = () => {
   }
 
   for (let i = 3; i < 6; i++) {
-    k++;
     for (let j = 0; j < 3; j++) {
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
     }
     for (let j = 3; j < 6; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
     }
     for (let j = 6; j < 9; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
@@ -177,26 +176,23 @@ const row = () => {
   }
 
   for (let i = 6; i < 9; i++) {
-    k++;
     for (let j = 0; j < 3; j++) {
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
     }
     for (let j = 3; j < 6; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
     }
     for (let j = 6; j < 9; j++) {
-      k++;
       b = app.children[i].children[j].innerText;
-      x[k] = b;
+      x[i + j] = b;
       if (check(x) === false) {
         return false;
       }
